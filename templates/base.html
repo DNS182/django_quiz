@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+    <title>{% block title %}TITLE GOES HERE{% endblock title %}</title>
+</head>
+<body style= 'background-color:#ecf0f3'>
+    <nav class="y_nav">
+        <div class="y_logo">
+            <a href="{% url 'index' %}"><h4>EKSAYABAYASII</h4></a>
+        </div>
+        <ul class="y_nav_links">
+            <li>
+                <a href="{% url 'index' %}">HOME</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+               <a href='{% url "logout" %}'>LOGOUT</a>
+           </li>
+           {% else %}
+            <li>
+                <a href='{% url "login" %}'>LOGIN</a>
+            </li>
+            <li>
+                <a href='{% url "register" %}'>REGISTER</a>
+            </li>
+            {% endif %}
+            <li>
+                <a href="index.html">LEADERBOARD</a>
+            </li>
+            <li>
+               <a href="index.html"> LET's PLAY</a>
+           </li>
+        </ul>
+        <div class="y_burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    
+    <script src="{%static 'style.js' %}"></script>
+
+{% block content %}
+
+
+{% endblock content %}
+
+
+</body>
+</html>
