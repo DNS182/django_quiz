@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
     <title>{% block title %}TITLE GOES HERE{% endblock title %}</title>
@@ -22,6 +23,9 @@
             <li>
                <a href='{% url "logout" %}'>LOGOUT</a>
            </li>
+           <li>
+            <a> Hello, &nbsp {{user.username}}</a>
+        </li>
            {% else %}
             <li>
                 <a href='{% url "login" %}'>LOGIN</a>
@@ -29,13 +33,10 @@
             <li>
                 <a href='{% url "register" %}'>REGISTER</a>
             </li>
-            {% endif %}
             <li>
-                <a href="index.html">LEADERBOARD</a>
-            </li>
-            <li>
-               <a href="index.html"> LET's PLAY</a>
+               <a href="{% url 'play' %}"> LET's PLAY</a>
            </li>
+           {% endif %}
         </ul>
         <div class="y_burger">
             <div class="line1"></div>

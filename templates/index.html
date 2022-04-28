@@ -4,19 +4,6 @@
 
 {% block content %}
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-  
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif
-    }
-   
-    body {
-        background: #ecf0f3
-    }
-   
     .wrapper {
         max-width: 350px;
         min-height: 200px;
@@ -26,8 +13,7 @@
         border-radius: 15px;
         box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff
     }
-  
-   
+
     .wrapper .btn {
         box-shadow: none;
         width: 100%;
@@ -57,76 +43,9 @@
   
   </style>
 <div class="wrapper">
-    <a href ='{% url "login" %}'> <button class="btn mt-3">LET'S PLAY </button></a>
+    <a href ='{% url "play" %}'> <button class="btn mt-3">LET'S PLAY </button></a>
        <br><br><br>
 </div>
-
-
-
-
-<div class="container ">
-<h1>Welcome to DataFlair Quiz</h1>
- 
-<div style= 'align-right' id="displaytimer"><b>Timer: 0 seconds</b></div>
- 
- <form method='post' action=''>
-    {% csrf_token %}
-    {% for q  in questions%}
-    <div class="form-group">
-      <label for="question">{{q.question}}</label>
-    </div>
-    <div class="form-check">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-                {{q.op1}}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-                {{q.op2}}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option3">
-            <label class="form-check-label" for="gridRadios1">
-                {{q.op3}}
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option4">
-            <label class="form-check-label" for="gridRadios2">
-                {{q.op4}}
-            </label>
-        </div>
-        <br>
-    </div>    
-    {% endfor %}
-    <input id='timer' type='hidden' name="timer" value="">
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-    {% block script %}
-        <script>
- 
-            console.log('hello world')
-            const timer=document.getElementById('displaytimer')
-            console.log(timer.textContent)
-            const inputtag = document.getElementById('timer')
- 
-            t=0
-            setInterval(()=>{
-                t+=1
-                timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
-                inputtag.value = t
-            },1000)
-        </script>
-    {% endblock script %}
- 
-</div>
-
-
 
 {% endblock content %}
 

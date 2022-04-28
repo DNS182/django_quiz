@@ -1,22 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}182's QUIZ{% endblock title %}
+{% block title %}{{user.username}} Play's 182's QUIZ{% endblock title %}
 
 {% block content %}
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-  
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif
-    }
-   
-    body {
-        background: #ecf0f3
-    }
-   
+ 
     .wrapper {
         max-width: 550px;
         min-height: 250px;
@@ -56,51 +44,35 @@
      }
   
   </style>
-<div class="wrapper">
-    {% for q  in questions %}
-    <div class="container ">
-        <h1>{{q.question}}</h1>
-         
-        <div style= 'align-right' id="displaytimer"><b>Timer: 0 seconds</b></div>
-         
-         <form method='post' >
+<div class="wrapper">   
+     <form method='post' >
             {% csrf_token %}
+    <div id="displaytimer" name='timer'><b>Timer: 0 seconds</b></div><br>
+    {% for i  in questions %}
+    <div class="container ">
+        <h1>{{i.id}}> {{i.question}}</h1>
+        
             <div class="form-check">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="{{q.question}}" id="{{q.id}}" value="option1" checked>
-                    <label class="form-check-label" for="{{q.id}}">
-                        {{q.op1}}
-                    </label>
+                    <input type = "radio" class="rb" name = '{{i.id}}' id="op1" value="{{i.op1}}">&nbsp{{i.op1}}
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="{{q.question}}" id="{{q.id}}" value="option2">
-                    <label class="form-check-label" for="{{q.id}}">
-                        {{q.op2}}
-                    </label>
+                    <input type = "radio" class="rb" name = '{{i.id}}' id="op2" value="{{i.op2}}">&nbsp{{i.op2}}
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="{{q.question}}" id="{{q.id}}" value="option3">
-                    <label class="form-check-label" for="{{q.id}}">
-                        {{q.op3}}
-                    </label>
+                    <input type = "radio" class="rb" name = '{{i.id}}' id="op3" value="{{i.op3}}">&nbsp{{i.op3}}
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="{{q.question}}" id="{{q.id}}" value="option4">
-                    <label class="form-check-label" for="{{q.id}}">
-                        {{q.op4}}
-                    </label>
+                    <input type = "radio" class="rb" name = '{{i.id}}' id="op4" value="{{i.op4}}">&nbsp{{i.op4}}
                 </div>
                 <br>
             </div>    
             {% endfor %}
-            <input id='timer' type='hidden' name="timer" value="">
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
             {% block script %}
                 <script>
-         
-                    console.log('hello world')
                     const timer=document.getElementById('displaytimer')
                     console.log(timer.textContent)
                     const inputtag = document.getElementById('timer')

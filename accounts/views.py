@@ -41,3 +41,4 @@ def user_login(request):
             messages.error(request , "InValid Credentials")
     return render(request , 'accounts/login.html')
 
+#logout used from django inbuilt logout feature ..

@@ -5,19 +5,7 @@
 {% block content %}
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-  * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif
-  }
- 
-  body {
-      background: #ecf0f3
-  }
- 
   .wrapper {
       max-width: 350px;
       min-height: 400px;
@@ -125,7 +113,7 @@
       <div class="form-field d-flex align-items-center">  <input type="password" name="password2" id="pwd" placeholder="Password" required=True> </div>
       <button class="btn mt-3">SIGN ME UP</button>
   </form>
-  <div class="text-center" style='margin-left:60px;margin-top:15px'> <a href="login">ALREADY USER ! SIGN IN</a> </div>
+  <div class="text-center" style='margin-left:60px;margin-top:15px'> <a href="{% url 'login' %}">ALREADY USER ! SIGN IN</a> </div>
 </div>
 
 {% endblock content %}

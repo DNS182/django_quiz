@@ -1,23 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}REGISTER{% endblock title %}
+{% block title %}WELCOME, HOP IN{% endblock title %}
 
 
 {% block content %}
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-  * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif
-  }
- 
-  body {
-      background: #ecf0f3
-  }
- 
   .wrapper {
       max-width: 350px;
       min-height: 300px;
@@ -120,11 +107,11 @@
       <div class="text-center mt-4 name"> SIGN ME IN </div>
   <form class="p-3 mt-3" method= 'post'>
       {% csrf_token %}
-      <div class="form-field d-flex align-items-center">  <input type="text" name="username" id="username" placeholder="Username"> </div>
-      <div class="form-field d-flex align-items-center">  <input type="password" name="password" id="password" placeholder="Password"> </div>
-      <button class="btn mt-3">SIGN ME UP</button>
+      <div class="form-field d-flex align-items-center">  <input type="text" name="username" id="username" placeholder="Username" required =True> </div>
+      <div class="form-field d-flex align-items-center">  <input type="password" name="password" id="password" placeholder="Password" required =True> </div>
+      <button class="btn mt-3">LET ME IN</button>
   </form>
-  <div class="text-center" style='margin-left:60px;margin-top:10px;padding-top:20px'> <a href="register">NEW USER ! SIGN UP</a> </div>
+  <div class="text-center" style='margin-left:60px;margin-top:10px;padding-top:20px'> <a href="{% url 'register' %}">NEW USER ! SIGN UP</a> </div>
 </div>
 
 {% endblock content %}
