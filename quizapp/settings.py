@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = ("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['quiz182.herokuapp.com','127.0.0.1:8000']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'quizapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6o67lmdtau0i8',
-        'USER': 'fgzrqvjsamoajk',
-        'PASSWORD': '5913269dc9924ec70915a832642658807f5d503f245a614e3535a4d1b8317c5e',
-        'HOST': 'ec2-34-194-73-236.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': '#',
+        'USER': '#',
+        'PASSWORD': '#',
+        'HOST': '#',
+        'PORT': '#',
     }
 }
 
