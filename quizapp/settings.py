@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'quizapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6o67lmdtau0i8',
+        'USER': 'fgzrqvjsamoajk',
+        'PASSWORD': '5913269dc9924ec70915a832642658807f5d503f245a614e3535a4d1b8317c5e<password>',
+        'HOST': '<ec2-34-194-73-236.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
